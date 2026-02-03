@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <style>
+      body {
+        font-family: Arial;
+      }
+      input {
+        display: block;
+        padding: 10px 12px;
+        width: 200px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border-width: 1.5px;
+      }
+
+      button {
+        background-color: rgb(0, 123, 255);
+        color: white;
+        padding: 10px 12px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      .password-container {
+        display: flex;
+        gap: 10px;
+      }
+
+      .hide-button {
+        background-color: gray;
+        height: 40px;
+      }
+    </style>
+    <script type="text/babel">
+      function App() {
+        const [showPassword, setShowPassword] = React.useState(false);
+        const [time, setTime] = React.useState(dayjs().format("HH:mm:ss"));
+
+        function onClicked() {
+          setShowPassword(!showPassword);
+        }
+
+        React.useEffect(() => {
+          setInterval(() => {
+            setTime(dayjs().format("HH:mm:ss"));
+            console.log('run code');
+          }, 1000);
+        }, []);
+
+        return (
+          <>
+            <div className="app-container">
+              <h2>Hello Welcome to my website</h2>
+              <input type="text" placeholder="Email" className="eamil-input" />
+              <div className="password-container">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  className="password-input"
+                />
+                <button className="hide-button" onClick={onClicked}>
+                  {showPassword ? "hide" : "show"}
+                </button>
+              </div>
+              <div className="button-container">
+                <button>Login</button>
+                <button>Sign up</button>
+              </div>
+            </div>
+
+            <p>Current time : {time}</p>
+          </>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

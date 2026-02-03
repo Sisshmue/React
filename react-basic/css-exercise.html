@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <style>
+      .on-button {
+        background-color: rgb(25, 135, 84);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        width: 50px;
+        height: 40px;
+      }
+      .off-button {
+        background-color: rgb(220, 53, 69);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        width: 50px;
+        height: 40px;
+      }
+    </style>
+    <script type="text/babel">
+      function App() {
+
+        const buttonRef = React.useRef(null);
+        const [isButtonOn, setButtonOnOff] = React.useState(true);
+
+        React.useEffect(()=>{
+            const buttonElem = buttonRef.current;
+            console.log(buttonElem);
+        })
+
+        function switchButton() {
+            setButtonOnOff(!isButtonOn);
+        }
+
+
+        return (
+          <>
+            <button 
+                className={isButtonOn ? "on-button" : 'off-button'}
+                onClick={switchButton}
+                ref={buttonRef}
+            > {isButtonOn ? 'ON' : 'OFF'}
+            </button>
+          </>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
