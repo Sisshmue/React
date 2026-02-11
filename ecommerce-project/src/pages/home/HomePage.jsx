@@ -4,13 +4,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { ProductGrid } from "./ProductGrid";
 
-export function HomePage({cart}) {
+export function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/products").then((response) => {
+    const fetchHomePgaeData = async () => {
+      const response = await axios.get("/api/products");
       setProducts(response.data);
-    });
+    };
+    fetchHomePgaeData();
   }, []);
 
   return (
@@ -19,7 +21,7 @@ export function HomePage({cart}) {
       <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
       <Header cart={cart} />
       <div className="home-page">
-       <ProductGrid products={products}/>
+        <ProductGrid products={products} />
       </div>
     </>
   );
