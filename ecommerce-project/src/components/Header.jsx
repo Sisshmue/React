@@ -25,7 +25,12 @@ export function Header({ cart }) {
   }
 
   const searchProduct = ()=>{
-    navigate(`/?search=${search}`);
+    if(search){
+      navigate(`/?search=${search}`);
+    }else{
+      navigate('/')
+    }
+    
   }
 
   return (
