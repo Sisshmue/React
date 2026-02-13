@@ -4,7 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { ProductGrid } from "./ProductGrid";
 
-export function HomePage({ cart }) {
+export function HomePage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export function HomePage({ cart }) {
       <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
       <Header cart={cart} />
       <div className="home-page">
-        <ProductGrid products={products} />
+        <ProductGrid products={products} loadCart={loadCart}/>
       </div>
     </>
   );
