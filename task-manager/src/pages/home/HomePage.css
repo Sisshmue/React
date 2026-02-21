@@ -23,15 +23,4 @@
   gap: 20px;
 }
 
-.right {
-  height: 240px;
-  width: 300px;
-}
 
-.left,
-.right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 30px;
-}

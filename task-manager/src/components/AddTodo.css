@@ -1,0 +1,35 @@
+.addtodo-container{
+    background-color: black;
+    color: white;
+    height: 240px;
+    width: 300px;
+    border-radius: 30px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.add-btn{
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: goldenrod;
+    color: white;
+    border: none;
+}
+
+.todo-title {
+    width: 250px;
+    height: 150px;
+    border-radius: 20px; 
+    border: none;
+    background-color: gray;
+    color: white;
+    padding: 15px;       
+    box-sizing: border-box;
+    resize: none;        
+    outline: none;       
+}

@@ -1,13 +1,15 @@
 import "./HomePage.css";
+import { AddTodo } from "../../components/AddTodo";
+import { TodoList } from "../../components/TodoList";
+import { SwitchTheme } from "../../components/SwitchTheme";
 
-export function HomePage() {
+export function HomePage({ todos, addTodo }) {
   return (
     <div className="homepage-container">
-      <div className="black left todo-list-conainter">black left</div>
-
+      <TodoList todos={todos} />
       <div className="right-wrapper">
-        <div className="black right theme-switch-container">black right</div>
-        <div className="black right add-task-container">black right</div>
+        <AddTodo addTodo={addTodo} />
+        <SwitchTheme />
       </div>
     </div>
   );
